@@ -1,5 +1,9 @@
 import style from "./style.module.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { faBookOpen ,faCalendarWeek,faCalendar,faCalendarDays} from "@fortawesome/free-solid-svg-icons";
 function Homepage(){
     return(
@@ -17,7 +21,10 @@ function Homepage(){
                         <input type="text" placeholder="Child Subject"></input>
                     </div>
                     <div>
-                        <FontAwesomeIcon icon={faCalendarWeek} /><input type="text" placeholder="mm/dd/yyyy"></input><p><FontAwesomeIcon icon={faCalendar} /></p>
+                    <FontAwesomeIcon icon={faCalendarWeek} />
+                         <p><LocalizationProvider dateAdapter={AdapterDayjs} >
+                            < DatePicker />
+                            </LocalizationProvider></p>
                     </div>
                     <div id={style.inp}>
                         <input type="checkbox"></input><label><strong>Self Placed</strong></label><button>Search</button>
